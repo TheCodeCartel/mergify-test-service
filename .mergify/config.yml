@@ -6,8 +6,9 @@ queue_rules:
 pull_request_rules:
   - name: merge using the merge queue
     conditions:
-      - base=main
-      - label=ready-to-merge
+      - and:
+        - base=main
+        - label=ready-to-merge
     actions:
       queue:
         name: default
