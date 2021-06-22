@@ -1,13 +1,13 @@
 queue_rules:
   - name: default
     conditions:
-      - passed-ci-in-queue
+      - label=passed-ci-in-queue
 
 pull_request_rules:
   - name: merge using the merge queue
     conditions:
       - base=main
-      - ready-to-merge
+      - label=ready-to-merge
     actions:
       queue:
         name: default
