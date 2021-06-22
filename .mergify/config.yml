@@ -1,7 +1,12 @@
-pull_request_rules:
-  - name: Automatic merge on approval
+queue_rules:
+  - name: default
     conditions:
-      - "#approved-reviews-by>=1"
+      - base=main
+
+pull_request_rules:
+  - name: merge using the merge queue
+    conditions:
+      - base=main
     actions:
-      merge:
-        method: merge
+      queue:
+        name: default
