@@ -9,7 +9,6 @@ pull_request_rules:
       - and:
           - base=main
           - label=ready-to-merge
-          - "check-success=ci/circleci: build-and-test"
     actions:
       queue:
         name: default
