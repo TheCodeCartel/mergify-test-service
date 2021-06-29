@@ -1,7 +1,7 @@
 queue_rules:
   - name: default
     conditions:
-      - status-check=build-and-test
+      - check-success=build-and-test
 
 pull_request_rules:
   - name: merge using the merge queue
@@ -9,7 +9,7 @@ pull_request_rules:
       - and:
           - base=main
           - label=ready-to-merge
-          - status-check=build-and-test
+          - check-success=build-and-test
     actions:
       queue:
         name: default
