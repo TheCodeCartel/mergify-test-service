@@ -1,8 +1,7 @@
 queue_rules:
   - name: default
     conditions:
-      - label=passed-ci-in-queue
-      - label=!failed-ci-in-queue
+      - status-check=build-and-test
 
 pull_request_rules:
   - name: merge using the merge queue
@@ -10,6 +9,7 @@ pull_request_rules:
       - and:
           - base=main
           - label=ready-to-merge
+          - status-check=build-and-test
     actions:
       queue:
         name: default
