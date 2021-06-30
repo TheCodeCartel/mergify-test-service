@@ -13,7 +13,7 @@ pull_request_rules:
           {% if check_succeed %}
           Jira Issue ID found in commit title
           {% else %}
-          Jira Issue ID missing in commit title (i.e., DX-411 My commit is great)
+          Jira Issue ID missing in commit title
           {% endif %}
         summary: |
           {% if not check_succeed %}
