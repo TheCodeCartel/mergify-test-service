@@ -13,9 +13,7 @@ jobs:
           pkg-manager: yarn
       - run:
           name: Run tests
-          command: |
-            sleep 5m
-            yarn test
+          command: yarn test
 
 workflows:
   sample:
