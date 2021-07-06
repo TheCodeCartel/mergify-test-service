@@ -20,7 +20,7 @@ pull_request_rules:
           Your pull request title must start with your Jira Issue ID.
           An example of an appropriate message is as follows:
           
-          DX-411 My commit message is great
+          DX-411 My commit message is greater than great
           {% endif %}
 
   - name: merge using the merge queue
