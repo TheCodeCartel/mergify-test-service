@@ -31,4 +31,4 @@ pull_request_rules:
     actions:
       queue:
         name: default
-        commit_message: title+body
+        commit_message: default
