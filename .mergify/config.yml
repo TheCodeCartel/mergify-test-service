@@ -4,30 +4,11 @@ queue_rules:
       - "check-success=ci/circleci: build-and-test"
 
 pull_request_rules:
-  - name: Jira Issue ID in Title
-    conditions:
-      - "title~=(^[A-Z]{2}-[0-9]+)"
-    actions:
-      post_check:
-        title: |
-          {% if check_succeed %}
-          Jira Issue ID found in commit title
-          {% else %}
-          Jira Issue ID missing in commit title
-          {% endif %}
-        summary: |
-          {% if not check_succeed %}
-          Your pull request title must start with your Jira Issue ID.
-          An example of an appropriate message is as follows:
-          
-          DX-411 My commit message is greater than great
-          {% endif %}
-
   - name: merge using the merge queue
     conditions:
-      - and:
-          - base=main
-          - label=ready-to-merge
+      - base=main
+      - "check-success=ci/circleci: build-and-test"
+      - label=ready-to-merge
     actions:
       queue:
         name: default
