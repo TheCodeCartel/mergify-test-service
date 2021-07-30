@@ -1,12 +1,14 @@
 queue_rules:
   - name: default
     conditions:
+      - "check-success=Codacy Static Code Analysis"
       - "check-success=ci/circleci: build-and-test"
 
 pull_request_rules:
   - name: merge using the merge queue
     conditions:
       - base=main
+      - "check-success=Codacy Static Code Analysis"
       - "check-success=ci/circleci: build-and-test"
       - label=ready-to-merge
     actions:
