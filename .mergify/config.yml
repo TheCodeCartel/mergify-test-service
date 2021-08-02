@@ -11,7 +11,15 @@ pull_request_rules:
       - "check-success=Codacy Static Code Analysis"
       - "check-success=ci/circleci: build-and-test"
       - label=ready-to-merge
+      - or:
+        - author=ecarlste
+        - author=@MergifyTesters
     actions:
+      comment:
+        message: "@{{author}} thanks for using Wacker Neuson 🔥"
+      label:
+        remove:
+          - ready-to-merge
       queue:
         name: default
         commit_message: default
