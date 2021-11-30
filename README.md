@@ -8,4 +8,4 @@ Let's add some text that is fun to test the PR title check!!!
 
 Testing the new code owners restriction w/ Mergify.io
 
-foo-test
+foo-test-bar
